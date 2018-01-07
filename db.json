@@ -1,0 +1,26 @@
+{
+  "recipe": [
+    {
+      "id": 1,
+      "name": "Trippel",
+      "lote": "6° Lote",
+      "boilTime": "60 minutos",
+      "originalGravity": "1045",
+      "finalGravity": "1018",
+      "ABV": "4,5 %",
+      "styleImg": "brew-color-03",
+      "IBU": "50"
+    },
+    {
+      "id": 2,
+      "name": "American Blond Ale",
+      "lote": "7° Lote",
+      "boilTime": "55 minutos",
+      "originalGravity": "1048",
+      "finalGravity": "1009",
+      "ABV": "5.0%",
+      "styleImg": "brew-color-04",
+      "IBU": "42"
+    }
+  ]
+}

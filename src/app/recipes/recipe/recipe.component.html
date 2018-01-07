@@ -1,0 +1,17 @@
+<ctx-confirm></ctx-confirm>
+<div class="place-info-box" [@recipeAppeared]="recipestate" title="{{recipe.name}}">
+    <span class="place-info-box-icon brew-color-img" ><img width="60px" height="80px" src="{{'https://s3.amazonaws.com/leapmind/contextManager/placa/img/' + recipe.styleImg + '.png'}}" /></span>
+    <div class="place-info-box-content">
+        <div>
+            <p class="place-info-box-text">{{recipe.name}}
+                <span class="pull-right">
+                    <a [routerLink]="['/recipe-detail', recipe.id]" class="ctx-icon-button" title="Editar"><i class="fa fa-pencil"></i></a>
+                    &nbsp;
+                    <a (click)="delete(recipe.id, recipe.name)" class="ctx-icon-button" title="Remover"><i class="fa fa-trash"></i></a>
+                </span>
+            </p>
+        </div>
+        <div><p class="place-info-box-attrs">{{recipe.lote}}<span class="pull-right"><span class="recipe-label">OG:</span> {{recipe.originalGravity}}&nbsp;&nbsp;&nbsp;<span class="recipe-label">OF:</span> {{recipe.finalGravity}}</span></p></div>
+        <div><p class="place-info-box-attrs"><span class="recipe-label">Boil Time: </span> {{recipe.boilTime}}<span class="pull-right"><span class="recipe-label">ABV:</span> {{recipe.ABV}}&nbsp;&nbsp;&nbsp;<span class="recipe-label">IBU:</span> {{recipe.IBU}}</span></p></div>
+  </div>
+</div>

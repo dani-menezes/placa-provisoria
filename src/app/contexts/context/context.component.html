@@ -1,0 +1,22 @@
+<ctx-confirm></ctx-confirm>
+<div class="place-info-box" [@contextAppeared]="contextState" title="{{context.name}}">
+    <div class="place-info-box-content">
+        <div>
+            <p class="place-info-box-text">{{context.name}}
+                <span class="pull-right">
+                    <a [routerLink]="['/context-detail', context.id]" class="ctx-icon-button" title="Editar"><i class="fa fa-pencil"></i></a>
+                    &nbsp;
+                    <a (click)="delete(context.id, context.name)" class="ctx-icon-button" title="Remover"><i class="fa fa-trash"></i></a>
+                </span>
+            </p>
+        </div>
+        <div>
+            <p class="place-info-box-attrs">
+                <span class="colorSpan pull-right" [style.background-color]="context.colorBg" [style.color]="getContrast(context.colorBg)">Fundo</span>
+                <span class="colorSpan pull-right" [style.background-color]="context.colorMn" [style.color]="getContrast(context.colorMn)">Menu</span>
+                <span class="colorSpan pull-right" [style.background-color]="context.colorFn" [style.color]="getContrast(context.colorFn)">Fonte</span>
+            </p>            
+        </div>
+        <div><p class="place-info-box-attrs">{{context.minX}}, {{context.minY}}, {{context.maxX}}, {{context.maxY}}</p></div>
+  </div>
+</div>

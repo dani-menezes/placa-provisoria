@@ -1,0 +1,92 @@
+<!--INICIO DO CONTEUDO-->
+<section class="content-header">
+    <ol class="breadcrumb ctx-breadcumb">
+        <li><a href="/"><i class="fa fa-home"></i> Placa Provisória</a></li>
+        <li><a href="/recipes"><i class="fa fa-book"></i> Receitas</a></li>
+        <li class="active"><i class="fa fa-bars"></i> Detalhes</li>
+    </ol>
+</section>
+  
+  <section class="content">
+    <section class="invoice">
+  
+      <!-- {{form.valid}}<br>
+      {{form.value | json}} -->
+      <form *ngIf="recipeForm" novalidate [formGroup]="recipeForm">
+          <div class="row">
+              <div class="col-xs-12">
+                <h2 class="page-header">
+                  Informações da Receita
+                </h2>
+              </div>
+          </div>
+          <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                  <ctx-input-container errorMessage="Campo obrigatório e com o mínimo de 3 caracteres" label="Nome">
+                      <input class="form-control" formControlName="name" autocomplete="off" placeholder="Nome da Receita" />
+                  </ctx-input-container>
+                </div>
+                <div class="col-sm-2 col-xs-12">
+                    <ctx-input-container errorMessage="Campo obrigatório" label="Lote">
+                        <input class="form-control" formControlName="lote" autocomplete="off" placeholder="Número do lote" />
+                    </ctx-input-container>
+                </div>
+                <div class="col-sm-2 col-xs-12">
+                    <ctx-input-container errorMessage="" label="Tempo de Fervura">
+                        <input class="form-control" formControlName="boilTime" autocomplete="off" placeholder="Tempo de Fervura" />
+                    </ctx-input-container>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <ctx-input-container errorMessage="Campo obrigatório" label="Coloração">
+                        <select class="form-control" formControlName="styleImg" autocomplete="off" placeholder="Coloração" >
+                            <option value="">Selecione</option>
+                            <option value="brew-color-01">brew-color-01</option>
+                            <option value="brew-color-02">brew-color-02</option>
+                            <option value="brew-color-03">brew-color-03</option>
+                            <option value="brew-color-04">brew-color-04</option>
+                            <option value="brew-color-05">brew-color-05</option>
+                            <option value="brew-color-06">brew-color-06</option>
+                        </select>
+                    </ctx-input-container>
+                </div>
+          </div>
+          <div class="row">
+                <div class="col-sm-3 col-xs-12">
+                  <ctx-input-container errorMessage="Campo obrigatório" label="OG">
+                      <input class="form-control" formControlName="originalGravity" autocomplete="off" placeholder="OG" />
+                  </ctx-input-container>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                    <ctx-input-container errorMessage="Campo obrigatório" label="FG">
+                        <input class="form-control" formControlName="finalGravity" autocomplete="off" placeholder="FG" />
+                    </ctx-input-container>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                    <ctx-input-container errorMessage="" label="ABV">
+                        <input class="form-control" formControlName="ABV" autocomplete="off" placeholder="ABV" />
+                    </ctx-input-container>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                    <ctx-input-container errorMessage="" label="IBU">
+                        <input class="form-control" formControlName="IBU" autocomplete="off" placeholder="IBU" />
+                    </ctx-input-container>
+                </div>
+          </div>
+          <div class="row">
+              <input [hidden]="true" formControlName="id"/>
+              <div class="col-xs-12">
+                <h2 class="page-footer">
+                      <button [routerLink]="['/recipes']" class="btn btn-danger btn-flat pull-left" >
+                          <i class="fa fa-times"></i>&nbsp;&nbsp;Cancelar
+                      </button>  
+                      <button [routerLink]="['/recipes']" class="btn btn-success btn-flat pull-right" 
+                              [disabled]="!recipeForm.valid"
+                              (click)="saveOrUpdate(recipeForm.value)"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Salvar
+                      </button>   
+                </h2>
+              </div>
+          </div>
+      </form>
+    </section>
+  </section>
+  

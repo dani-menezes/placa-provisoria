@@ -1,0 +1,126 @@
+<!--INICIO DO CONTEUDO-->
+<section class="content-header">
+  <ol class="breadcrumb ctx-breadcumb">
+      <li><a href="/"><i class="fa fa-home"></i> Context Manager</a></li>
+      <li><a href="/contexts"><i class="fa fa-book"></i> Contextos</a></li>
+      <li class="active"><i class="fa fa-bars"></i> Detail</li>
+  </ol>
+</section>
+
+<section class="content">
+  <section class="invoice">
+
+    <!-- {{form.valid}}<br>
+    {{form.value | json}} -->
+    <form *ngIf="contextForm" novalidate [formGroup]="contextForm">
+        <div class="row">
+            <div class="col-xs-12">
+              <h2 class="page-header">
+                Informações do contexto
+              </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <ctx-input-container errorMessage="Campo obrigatório e com o mínimo de 5 caracteres" label="Nome">
+                    <input class="form-control" formControlName="name" autocomplete="off" placeholder="Nome do contexto" />
+                </ctx-input-container>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+            </div>
+        </div>
+        <!-- Bouding BOX -->
+        <div class="row">
+            <div class="col-sm-4 col-xs-12"></div>
+            <div class="col-sm-4 col-xs-12">
+                <ctx-input-container errorMessage="Campo obrigatório" label="Max Y">
+                    <input class="form-control" formControlName="maxY" autocomplete="off" placeholder="Máximo Y" />
+                </ctx-input-container>
+            </div>
+            <div class="col-sm-4 col-xs-12"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-xs-12">
+                <ctx-input-container errorMessage="Campo obrigatório" label="Min X">
+                    <input class="form-control" formControlName="minX" autocomplete="off" placeholder="Mínimo X" />
+                </ctx-input-container>
+            </div>
+            <div class="col-sm-4 col-xs-12"></div>
+            <div class="col-sm-4 col-xs-12">
+                <ctx-input-container errorMessage="Campo obrigatório" label="Max X">
+                    <input class="form-control" formControlName="maxX" autocomplete="off" placeholder="Máximo X" />
+                </ctx-input-container>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-xs-12"></div>
+            <div class="col-sm-4 col-xs-12">
+                <ctx-input-container errorMessage="Campo obrigatório" label="Min Y">
+                    <input class="form-control" formControlName="minY" autocomplete="off" placeholder="Minimo Y" />
+                </ctx-input-container>
+            </div>
+            <div class="col-sm-4 col-xs-12"></div>
+        </div>
+        <!-- //Bouding BOX -->
+        <!-- Color Picker -->
+        <div class="row" align="center">
+            <div class="col-sm-4 col-xs-12">
+                <table>
+                    <tr>
+                        <td class="tdmiddle">
+                            <span class="pull-right" >Cor de fundo:&nbsp;&nbsp;&nbsp;</span>
+                        </td>
+                        <td>
+                            <ctx-input-container errorMessage="Campo obrigatório" label="Nome">
+                                <input class="inputColor" type="color" formControlName="colorBg" autocomplete="off" placeholder="Cor de fundo" />
+                            </ctx-input-container>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <table>
+                    <tr>
+                        <td class="tdmiddle">
+                            <span class="pull-right" >Cor do menu:&nbsp;&nbsp;&nbsp;</span>
+                        </td>
+                        <td>
+                            <ctx-input-container errorMessage="Campo obrigatório" label="Cor do menu">
+                                <input class="inputColor" type="color" formControlName="colorMn" autocomplete="off" placeholder="Cor do menu" />
+                            </ctx-input-container>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <table>
+                    <tr>
+                        <td class="tdmiddle">
+                            <span class="pull-right" >Cor da fonte:&nbsp;&nbsp;&nbsp;</span>
+                        </td>
+                        <td>
+                            <ctx-input-container errorMessage="Campo obrigatório" label="Cor da fonte">
+                                <input class="inputColor" type="color" formControlName="colorFn" autocomplete="off" placeholder="Cor da fonte" />
+                            </ctx-input-container>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <input [hidden]="true" formControlName="id"/>
+            <div class="col-xs-12">
+              <h2 class="page-footer">
+                    <button [routerLink]="['/contexts']" class="btn btn-danger btn-flat pull-left" >
+                        <i class="fa fa-times"></i>&nbsp;&nbsp;Cancelar
+                    </button>  
+                    <button [routerLink]="['/contexts']" class="btn btn-success btn-flat pull-right" 
+                            [disabled]="!contextForm.valid"
+                            (click)="saveOrUpdate(contextForm.value)"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Salvar
+                    </button>   
+              </h2>
+            </div>
+        </div>
+    </form>
+  </section>
+</section>

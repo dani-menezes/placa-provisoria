@@ -1,0 +1,41 @@
+<section class="content-header">
+  <ol class="breadcrumb ctx-breadcumb">
+      <li><a href="/"><i class="fa fa-home"></i> Context Manager</a></li>
+      <li class="active"><i class="fa fa-book"></i> Contextos</li>
+  </ol>
+  <h1>
+    <i class="fa fa-book"></i> Contextos
+    <span class="pull-right">
+        <a class="ctx-icon-button" [routerLink]="['/context-detail']" title="Adicionar">
+          <i class="fa fa-plus-square"></i>
+        </a>
+        &nbsp;&nbsp;
+        <a class="search-link" (click)="toggleSearch()">
+          <span *ngIf="iptSearch.value">
+            <small>{{iptSearch.value}}</small>&nbsp;
+          </span>
+          <i class="fa fa-search"></i>
+        </a>
+    </span>
+  </h1>
+  <div class="row">
+    <div class="col-xs-12 search-bar" [@toggleSearch]="searchBarState">
+        <form [formGroup]="searchForm">
+            <div class="form-group">
+                <input type="text" #iptSearch formControlName="searchControl" class="form-control" placeholder="Pesquisa">
+            </div>
+        </form>
+    </div>
+  </div>
+</section> 
+
+<section class="content">
+  <div class="row">
+    <div *ngFor="let context of this.contexts" class="col-sm-4 col-xs-12">
+      <ctx-context (reloadEntities)="this.retrieveEntities()" [context]="context"></ctx-context>
+    </div>
+    <div *ngIf="this.contexts?.length === 0" class="col-xs-12">
+      <p class="lead text-center">Não foram encontrados itens para a sua busca</p>
+    </div>
+  </div>
+</section>
